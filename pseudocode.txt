@@ -1,0 +1,16 @@
+PSEUDO CODE - JAVASCRIPT HOMEWORK WEEK 4
+
+/* RANDOM PASSWORD GENERATOR */
+
+DECLARE characters array (charArray) variable
+
+var charArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
+		 'r','s','t','u','v','w','x','y','z','A','B', 'C', 'D', 'E', 'F', 'G', 			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 		'W', 'X', 'Y', 'Z', 
+
+SET charArray EQUAL to lower case & uppercase alphabet, special characters and numbers 0 - 9;
+
+PROMPT user to select password length between 8 - 128
+PROMPT user to select Character Type (i.e. - Special, Numeric, Lowercase, Uppercase)
+
+VALIDATE user input after each prompt
+

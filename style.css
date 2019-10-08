@@ -1,0 +1,4 @@
+.container, textarea .border {
+    border: 3px dashed black;
+    border-radius: 8px;
+}
