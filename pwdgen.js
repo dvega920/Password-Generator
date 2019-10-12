@@ -1,31 +1,114 @@
-// var userInput = prompt("How many characters should your password be? (8-128)");
+//stores the value of the password length chosen by user
+var passLength = parseInt(prompt('Set password length (8-128)'));
 
-var charAlpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// function to generate random password based on length of characters set by user
+function randomPassword(length) {
+    var specChar = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?";
+    var numeric = "0123456789";
+    var lowerChar = "abcdefghijklmnopqrstuvwxyz";
+    var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var charset = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var password = "";
 
-var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-var specChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+    if (!passLength) {
+        alert('must enter a number');
+    } else
+        if (passLength < 8) {
+            alert('must be an integer 8-128 characters');
+        } else {
+            var confirmSpecChar = confirm('Click OK to confirm special characters')
+            var confirmNum = confirm('Click OK to confirm numeric characters')
+            var confirmLowerCase = confirm('Click OK to confirm lowercase characters')
+            var confirmUpperCase = confirm('Click OK to confirm uppercase characters')
+        }
+    if (
+        (confirmSpecChar) &&
+        (confirmNum) &&
+        (confirmLowerCase) &&
+        (confirmUpperCase)) {
 
-function toUpperCase() {
-    var arrayUpper = [];
-
-    for (var i = 0; i < charAlpha.length; i++) {
-        arrayUpper.push(charAlpha[i]);
-        // console.log(arrayUpper[i].toUpperCase());
+        for (var i = 0; i < length; i++) {
+            var random = Math.floor(Math.random() * length);
+            // password += specChar.charAt(random);
+            // password += numeric.charAt(random);
+            // password += lowerChar.charAt(random);
+            // password += upperChar.charAt(random);
+            password += charset.charAt(i);
+        }
     }
-};
+    return password;
+}
 
-toUpperCase();
 
-var userInput = parseInt(prompt("Set your password length (8-128)"));
+// Having trouble structuring my conditionals. 
 
-confirm('You selected ' + userInput + ' characters');
+// function call to run random password generator
+// randomPassword(passLength);
 
-var specChar = confirm("Click OK to confirm including special characters");
 
-var numeric = confirm("Click OK to confirm including numeric characters");
 
-var lowerCase = confirm("Click OK to confirm including lower case characters");
 
-var upperCase = confirm("Click OK to confirm including upper case characters");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// var specChar = [' ', '!', '\"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '\[', '\\', '\]', '^', '_', '`', '{', '|', '}', '~',]
+// var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// var alphaUp = [];
+// var newCharArray = [];
+// var password = '';
+
+
+
+
+
+// //function to convert alpha array to upper case
+// function alphaUpper() {
+//     for (var i = 0; i < alpha.length; i++) {
+//         alphaUp.push(alpha[i].toUpperCase());
+//     }
+// }
+// alphaUpper();
+
+// genPass(passLength);
+
+
+
+
 
