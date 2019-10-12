@@ -3,12 +3,14 @@ var passLength = parseInt(prompt('Set password length (8-128)'));
 
 // function to generate random password based on length of characters set by user
 function randomPassword(length) {
+
     var specChar = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?";
     var numeric = "0123456789";
     var lowerChar = "abcdefghijklmnopqrstuvwxyz";
     var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var charset = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var password = "";
+    var newArray = [];
 
 
     if (!passLength) {
@@ -22,24 +24,29 @@ function randomPassword(length) {
             var confirmLowerCase = confirm('Click OK to confirm lowercase characters')
             var confirmUpperCase = confirm('Click OK to confirm uppercase characters')
         }
-    if (
-        (confirmSpecChar) &&
-        (confirmNum) &&
-        (confirmLowerCase) &&
-        (confirmUpperCase)) {
-
-        for (var i = 0; i < length; i++) {
-            var random = Math.floor(Math.random() * length);
-            // password += specChar.charAt(random);
-            // password += numeric.charAt(random);
-            // password += lowerChar.charAt(random);
-            // password += upperChar.charAt(random);
-            password += charset.charAt(i);
-        }
+    if (confirmSpecChar) {
+        newArray.push(specChar);
     }
-    return password;
+    if (confirmNum) {
+        newArray.push(numeric);
+    }
+    if (confirmLowerCase) {
+        newArray.push(lowerChar);
+    }
+    if (confirmUpperCase) {
+        newArray.push(upperChar);
+    }
+
+    for (var i = 0; i < length; i++) {
+        var random = Math.floor(Math.random() * newArray.length);
+        var random2 = Math.floor(Math.random() * newArray[random].length)
+        password += newArray[random].charAt(random2);
+
+    }
+    return password
 }
 
+randomPassword(passLength);
 
 // Having trouble structuring my conditionals. 
 
