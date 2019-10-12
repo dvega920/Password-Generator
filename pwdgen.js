@@ -1,18 +1,22 @@
-//stores the value of the password length chosen by user
-var passLength = parseInt(prompt('Set password length (8-128)'));
+
+
+
 
 // function to generate random password based on length of characters set by user
 function randomPassword(length) {
+
+    //stores the value of the password length chosen by user
+    var passLength = parseInt(prompt('Set password length (8-128)'));
+    console.log(passLength);
 
     var specChar = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?";
     var numeric = "0123456789";
     var lowerChar = "abcdefghijklmnopqrstuvwxyz";
     var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var charset = " `~!@#$%^&*()_+-=[]\{}|;':\",./<>?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var password = "";
     var newArray = [];
 
-
+    //validates user input to check for invalid characters, required character length and valid entries
     if (!passLength) {
         alert('must enter a number');
     } else
@@ -24,6 +28,11 @@ function randomPassword(length) {
             var confirmLowerCase = confirm('Click OK to confirm lowercase characters')
             var confirmUpperCase = confirm('Click OK to confirm uppercase characters')
         }
+
+    //Condition statements to confirm chosen character strings. 
+    //Pushed character string variables into NEW empty array. 
+    //Based on user confirmation(s), it will determine which character strings get pushed to the new array. 
+
     if (confirmSpecChar) {
         newArray.push(specChar);
     }
@@ -37,85 +46,25 @@ function randomPassword(length) {
         newArray.push(upperChar);
     }
 
+    //for loop which uses the "length" parameter that is being passed into th function which contains the value of "passLength"
+    //this sets the random number requirement from 0 to the value of the "length" parameter which is equal to "passLength".
+    //first random number is made up of random number times the length of the newArray variable. 
+    //second random number generates random number times the length of the newArray at a random index number.
+
     for (var i = 0; i < length; i++) {
         var random = Math.floor(Math.random() * newArray.length);
         var random2 = Math.floor(Math.random() * newArray[random].length)
         password += newArray[random].charAt(random2);
-
     }
+
+    // returns the value of password 
     return password
 }
 
-randomPassword(passLength);
+var button = document.querySelector("#generate");
+button.addEventListener('click', randomPassword);
 
-// Having trouble structuring my conditionals. 
-
-// function call to run random password generator
+// function call
 // randomPassword(passLength);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// var specChar = [' ', '!', '\"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '\[', '\\', '\]', '^', '_', '`', '{', '|', '}', '~',]
-// var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-// var alphaUp = [];
-// var newCharArray = [];
-// var password = '';
-
-
-
-
-
-// //function to convert alpha array to upper case
-// function alphaUpper() {
-//     for (var i = 0; i < alpha.length; i++) {
-//         alphaUp.push(alpha[i].toUpperCase());
-//     }
-// }
-// alphaUpper();
-
-// genPass(passLength);
-
-
-
 
 
