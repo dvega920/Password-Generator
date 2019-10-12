@@ -1,7 +1,3 @@
-
-
-
-
 // function to generate random password based on length of characters set by user
 function randomPassword(length) {
 
@@ -16,11 +12,12 @@ function randomPassword(length) {
     var password = "";
     var newArray = [];
 
+
     //validates user input to check for invalid characters, required character length and valid entries
     if (!passLength) {
         alert('must enter a number');
     } else
-        if (passLength < 8) {
+        if (passLength < 8 || passLength > 128) {
             alert('must be an integer 8-128 characters');
         } else {
             var confirmSpecChar = confirm('Click OK to confirm special characters')
@@ -53,16 +50,21 @@ function randomPassword(length) {
 
     for (var i = 0; i < length; i++) {
         var random = Math.floor(Math.random() * newArray.length);
-        var random2 = Math.floor(Math.random() * newArray[random].length)
+        var random2 = Math.floor(Math.random() * newArray[random].length);
         password += newArray[random].charAt(random2);
     }
 
     // returns the value of password 
-    return password
+    return password;
 }
+
+var getTextEl = document.getElementById('password');
+getTextEl.textContent += password.value;
 
 var button = document.querySelector("#generate");
 button.addEventListener('click', randomPassword);
+
+
 
 // function call
 // randomPassword(passLength);
