@@ -54,19 +54,24 @@ function randomPassword(length) {
         password += newArray[random].charAt(random2);
     }
 
-    // returns the value of password 
+    console.log(password);
+    // returns the value of password
     return password;
+
 }
 
-var getTextEl = document.getElementById('password');
-getTextEl.textContent += password.value;
 
+//Event listener on generate button to run randomPassword(length)
 var button = document.querySelector("#generate");
 button.addEventListener('click', randomPassword);
 
 
+//declare variable and assign object value. (Grabs the element)
+//add the value of input element to a new variable
+//write the value to the input element via textContent
+var inputEl = document.querySelector('#password').value;
+var inputElVal = inputEl.value;
+inputEl.textContent = inputElVal;
 
-// function call
-// randomPassword(passLength);
 
-
+/*** Cannot seem to get password to output to the page - ERROR = "[object HTMLTextAreaElement"] or just "" */
